@@ -1,3 +1,10 @@
+python -m venv .venv
+
+pip install djangorestframework
+pip install djangorestframework-simplejwt
+pip install django-cors-headers
+pip install Pillow
+
 pip freeze > requirements.txt
 
 
@@ -28,3 +35,24 @@ lsof -i :8000
 kill -9
 
 pip install djangorestframework
+
+
+{
+  "product": {
+    "id": 1,
+    "quantity": 2
+  }
+}
+
+
+Listar y crear órdenes: 
+
+GET /api/orders/ y 
+POST /api/orders/
+
+Obtener, actualizar y eliminar una orden específica: 
+
+GET /api/orders/<id>/, 
+PUT /api/orders/<id>/ y 
+DELETE /api/orders/<id>/
+

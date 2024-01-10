@@ -1,18 +1,16 @@
 from rest_framework import serializers
-from .models import Order, OrderItem
-
-
+from orders.models import Order, OrderItem
 from rest_framework import serializers
-from .models import Order, OrderItem
 from products.serializers import ProductSerializer
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
+    product = ProductSerializer(source='name')
 
     class Meta:
         model = OrderItem
         fields = ['id', 'product', 'quantity']
+
 
 class OrderSerializer(serializers.ModelSerializer):
     user_account = serializers.ReadOnlyField(source='user_account.user.username')

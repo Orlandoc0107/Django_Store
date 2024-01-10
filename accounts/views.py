@@ -63,8 +63,8 @@ class RegisterClientView(APIView):
                 with transaction.atomic():
                     user = User.objects.create_user(username=username, password=password)
                     accounts = Accounts.objects.create(user=user)
-                    cart = Cart.objects.create(user_account=accounts.user)
-                    order = Order.objects.create(user_account=accounts, total_price=0, is_completed=False)
+                    cart = Cart.objects.create(user_account=user)
+                    order = Order.objects.create(user_account=user, total_price=0, is_completed=False)
             except Exception as e:
                 return Response({'success': False, 'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 

@@ -61,6 +61,13 @@ class CartProductCreateAPIView(APIView):
 
         return Response(CartProductSerializer(cart_product).data, status=status.HTTP_201_CREATED)
 
+# {
+#   "product": {
+#     "id": 1,
+#     "quantity": 2
+#   }
+# }
+
 
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])

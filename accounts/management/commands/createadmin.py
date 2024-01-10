@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
             cart = Cart.objects.create(user_account=superuser)
 
-            order = Order.objects.create(user_account=superuser.accounts, total_price=0, is_completed=False)
+            order = Order.objects.create(user_account=superuser, total_price=0, is_completed=False)
 
             self.stdout.write(self.style.SUCCESS('Superuser created successfully.'))
         else:
